@@ -1,6 +1,29 @@
 import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
 
+const painPoints = [
+  {
+    icon: '😓',
+    title: '月謝・集金の管理に毎月何日も取られる',
+    desc: '振込確認・未納フォロー・領収書発行…手作業の繰り返しでスタッフが疲弊していませんか？',
+  },
+  {
+    icon: '📞',
+    title: '予約の問い合わせ電話が鳴り止まない',
+    desc: '空き枠確認・キャンセル対応・振替調整。本来の指導業務に集中できない状況が続いていませんか？',
+  },
+  {
+    icon: '📋',
+    title: '入退会の手続きがアナログのまま',
+    desc: '紙の書類・手書き台帳・Excelでの管理。ミスが起きやすく、引き継ぎも大変ですよね。',
+  },
+  {
+    icon: '📉',
+    title: '紹介・口コミによる新規獲得が増えない',
+    desc: 'キャンペーンをやりたいが管理が追いつかない。紙のフライヤーでは浸透しない。',
+  },
+]
+
 const businessTypes = [
   {
     label: 'ダンススクール',
@@ -43,27 +66,33 @@ const features = [
   { icon: '🔗', title: '外部連携', desc: 'Zoom・Googleカレンダー・ECなど多彩なツールと連携。' },
 ]
 
-const testimonials = [
+const results = [
   {
-    type: 'ダンススクール',
-    voice: '月謝集金と予約管理に毎月3日かかっていたのが、ほぼゼロになりました。',
-    name: '関東・ダンススクール運営者',
-    photo: 'https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&q=80',
-    alt: 'ダンススクール',
-  },
-  {
-    type: 'フィットネスジム',
-    voice: '入退会手続きがオンライン完結で、受付人件費を月20万円以上削減できました。',
-    name: '首都圏・パーソナルジム経営者',
-    photo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80',
+    before: '月50〜60人',
+    after: '月100人超',
+    label: '新規入会数',
+    detail: '紹介経由の入会率が24%→36%に向上',
+    photo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80',
     alt: 'フィットネスジム',
+    tag: '西日本・スポーツクラブ',
   },
   {
-    type: 'ヨガスタジオ',
-    voice: 'LINE通知で予約リマインドが自動送信され、無断キャンセルが激減しました。',
-    name: '関西・ヨガスタジオ代表',
-    photo: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80',
+    before: '7〜9時間/月',
+    after: '1時間/月',
+    label: 'キャンペーン管理工数',
+    detail: '手作業での照合・集計が不要に',
+    photo: 'https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&q=80',
+    alt: 'ダンススクール',
+    tag: '関東・ダンススクール',
+  },
+  {
+    before: '受付スタッフ2名',
+    after: 'スタッフ1名で運営',
+    label: '受付業務',
+    detail: '入退会・予約対応がオンラインで完結',
+    photo: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80',
     alt: 'ヨガスタジオ',
+    tag: '関西・ヨガスタジオ',
   },
 ]
 
@@ -87,7 +116,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ヒーロー：背景写真 + ダイナミックレイアウト */}
+      {/* ヒーロー */}
       <section className="pt-16 relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -108,14 +137,15 @@ export default function Home() {
               DAYS株式会社 × hacomono公式パートナー
             </div>
             <h1 className="text-4xl md:text-6xl font-black leading-[1.1] mb-6 tracking-tight">
-              スクール・<br />
-              フィットネスの<br />
-              <span className="text-[var(--teal)]">業務を全部、</span><br />
-              hacomonoへ。
+              その業務の手間、<br />
+              <span className="text-[var(--teal)]">全部なくせます。</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed">
-              会員管理・予約・決済・請求をオールインワンで自動化。<br />
-              DAYS経由なら<strong className="text-white"> 初期費用100,000円割引</strong>でスタート。
+            <p className="text-lg md:text-xl text-white/80 mb-4 leading-relaxed">
+              月謝管理・予約対応・入退会手続き・紹介キャンペーン管理—
+              スクール・フィットネス施設のあらゆる業務を<strong className="text-white">hacomonoが自動化</strong>します。
+            </p>
+            <p className="text-base text-white/60 mb-10">
+              DAYS経由のお申し込みで<span className="text-[var(--teal)] font-bold">初期費用100,000円割引</span>の特典あり。
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -125,28 +155,23 @@ export default function Home() {
                 無料で相談する →
               </a>
               <a
-                href="#features"
+                href="#pain"
                 className="inline-flex items-center justify-center font-medium text-white border border-white/30 px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-colors"
               >
-                機能を見る
+                こんな課題ありませんか？
               </a>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-4 text-sm text-white/60">
-              <span className="flex items-center gap-1"><span className="text-[var(--teal)]">✓</span> 初期費用100,000円割引</span>
-              <span className="flex items-center gap-1"><span className="text-[var(--teal)]">✓</span> 導入サポート付き</span>
-              <span className="flex items-center gap-1"><span className="text-[var(--teal)]">✓</span> 最短2週間で稼働</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 実績数字 */}
-      <section className="py-12 bg-[var(--teal)]">
+      {/* 実績数字バー */}
+      <section className="py-10 bg-[var(--teal)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
             {[
               { num: '12,000+', label: '導入店舗数' },
-              { num: '2週間', label: '最短稼働期間' },
+              { num: '最短2週間', label: '稼働までの期間' },
               { num: '¥100,000', label: 'DAYS経由割引額' },
               { num: '60分', label: '無料相談' },
             ].map(({ num, label }) => (
@@ -159,8 +184,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* こんな課題ありませんか？ */}
+      <section id="pain" className="py-20 bg-[var(--gray-bg)]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-sm font-bold mb-2 uppercase tracking-widest text-red-400">
+              Pain Points
+            </p>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--navy)]">
+              こんな課題、ありませんか？
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {painPoints.map((p) => (
+              <div key={p.title} className="bg-white rounded-2xl p-6 border-l-4 border-red-300 shadow-sm">
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <h3 className="font-bold text-base md:text-lg text-[var(--navy)] mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <p className="text-gray-400 text-sm mb-2">↓ これ、全部hacomonoで解決できます</p>
+            <a href="#features" className="text-[var(--teal)] font-bold text-sm hover:underline">
+              解決策を見る →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 対応業態：写真グリッド */}
-      <section className="py-20 bg-[var(--gray-bg)]">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-sm font-bold mb-2 uppercase tracking-widest text-[var(--teal)]">
@@ -189,16 +243,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 機能 */}
-      <section id="features" className="py-20">
+      {/* 機能：hacomonoで全部解決 */}
+      <section id="features" className="py-20 bg-[var(--gray-bg)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-sm font-bold mb-2 uppercase tracking-widest text-[var(--teal)]">
-              Features
+              Solution
             </p>
             <h2 className="text-2xl md:text-3xl font-black text-[var(--navy)]">
-              一つのシステムで、全てが完結
+              hacomonoが、全部解決します
             </h2>
+            <p className="mt-3 text-gray-500 max-w-xl mx-auto">
+              バラバラだったツールをhacomonoに集約。スタッフの工数を削減し、
+              経営に集中できる環境をつくります。
+            </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f) => (
@@ -215,39 +273,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 導入施設の声：写真付きカード */}
+      {/* 導入成果：Before/After */}
       <section className="py-20 bg-[var(--navy)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-sm font-bold mb-2 uppercase tracking-widest text-[var(--teal)]">
-              Testimonials
+              Results
             </p>
             <h2 className="text-2xl md:text-3xl font-black text-white">
-              導入した施設の声
+              実際に変わった数字
             </h2>
+            <p className="mt-3 text-white/60 text-sm">※ 導入施設の実績（施設名は非公開）</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                <div className="relative h-40">
-                  <Image
-                    src={t.photo}
-                    alt={t.alt}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[var(--navy)]/50" />
+            {results.map((r) => (
+              <div key={r.label} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="relative h-36">
+                  <Image src={r.photo} alt={r.alt} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-[var(--navy)]/60" />
                   <div className="absolute bottom-3 left-4">
                     <span className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--teal)] text-white">
-                      {t.type}
+                      {r.tag}
                     </span>
                   </div>
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-white/80 leading-relaxed mb-3">
-                    &ldquo;{t.voice}&rdquo;
-                  </p>
-                  <p className="text-xs text-white/40">{t.name}</p>
+                  <p className="text-xs text-white/50 mb-2">{r.label}</p>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-white/40 line-through text-sm">{r.before}</span>
+                    <span className="text-white/40">→</span>
+                    <span className="text-[var(--teal)] font-black text-xl">{r.after}</span>
+                  </div>
+                  <p className="text-xs text-white/50 leading-relaxed">{r.detail}</p>
                 </div>
               </div>
             ))}
@@ -258,12 +315,17 @@ export default function Home() {
       {/* DAYS経由特典 */}
       <section className="py-20 bg-[var(--teal)]">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
+          <p className="text-sm font-bold mb-3 uppercase tracking-widest text-white/70">
+            Special Offer
+          </p>
           <h2 className="text-2xl md:text-4xl font-black mb-4 leading-tight">
-            DAYS経由で申し込むと<br />
+            さらに、DAYS経由なら<br />
             <span className="underline decoration-white/40 underline-offset-4">初期費用100,000円が割引</span>
           </h2>
-          <p className="text-white/80 mb-10 max-w-xl mx-auto">
-            DAYS株式会社はhacomono公式パートナー。パートナー経由で通常初期費用から100,000円割引が適用されます。
+          <p className="text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
+            DAYS株式会社はhacomono公式パートナーです。
+            パートナー経由のお申し込みで、通常の初期費用から100,000円の割引が適用されます。
+            まずは無料で相談してみてください。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
             {[

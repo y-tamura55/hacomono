@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'hacomono導入支援 | DAYS株式会社',
   description:
     'スクール・フィットネス施設の会員管理・予約・決済をオールインワンで解決。DAYS株式会社がhacomono公式パートナーとして導入をサポートします。初期費用100,000円割引の特典あり。',
+  robots: 'noindex, nofollow',
   openGraph: {
     title: 'hacomono導入支援 | DAYS株式会社',
     description:
