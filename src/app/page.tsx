@@ -5,17 +5,17 @@ const painPoints = [
   {
     no: '01',
     title: '月謝・集金の管理に毎月何日も取られる',
-    desc: '振込確認・未納フォロー・領収書発行…手作業の繰り返しでスタッフが疲弊していませんか？',
+    desc: '振込確認・未納フォロー・領収書発行…手作業の繰り返しでスタッフが疲弊。',
   },
   {
     no: '02',
     title: '予約の問い合わせ電話が鳴り止まない',
-    desc: '空き枠確認・キャンセル対応・振替調整。本来の指導業務に集中できない状況が続いていませんか？',
+    desc: '空き枠確認・キャンセル対応・振替調整。本来の指導業務に集中できない。',
   },
   {
     no: '03',
     title: '入退会の手続きがアナログのまま',
-    desc: '紙の書類・手書き台帳・Excelでの管理。ミスが起きやすく、引き継ぎも大変ですよね。',
+    desc: '紙の書類・手書き台帳・Excelでの管理。ミスが起きやすく引き継ぎも大変。',
   },
   {
     no: '04',
@@ -24,13 +24,31 @@ const painPoints = [
   },
 ]
 
-const features = [
-  { title: '会員管理', desc: '入会・更新・退会を自動化。会員情報をクラウドで一元管理。' },
-  { title: '予約・スケジュール管理', desc: 'オンライン予約・キャンセル・LINE自動リマインド。スタッフの電話対応工数を大幅削減。' },
-  { title: '決済・月謝管理', desc: '月謝・都度課金・物販に対応。クレカ・口座振替をシステム内で完結。' },
-  { title: '売上・経営分析', desc: '入退会・売上の推移をダッシュボードでリアルタイム可視化。' },
-  { title: '会員専用アプリ', desc: '会員が自ら予約・確認。スクール管理・出欠連絡もアプリ内完結。' },
-  { title: '外部ツール連携', desc: 'Zoom・Googleカレンダー・各種ECなど多彩なツールとAPI連携。' },
+const featureSections = [
+  {
+    label: '会員・予約・決済',
+    title: 'バラバラな管理を、\nひとつに集約',
+    desc: '入会手続き・月謝管理・予約受付・決済処理—これまで別々のツールで行っていた業務がhacomono一つで完結。スタッフの工数を大幅に削減します。',
+    image: 'https://www.hacomono.co.jp/wp-content/themes/haco/img/product/img_1.png',
+    imageAlt: 'hacomono会員管理画面',
+    reverse: false,
+  },
+  {
+    label: '売上・経営分析',
+    title: '経営判断を、\nデータで裏付ける',
+    desc: '入会数・退会数・売上推移をリアルタイムで可視化。どの施設・クラスが伸びているか、どの会員が離脱リスクにあるか、ダッシュボードで一目でわかります。',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    imageAlt: '売上分析ダッシュボード',
+    reverse: true,
+  },
+  {
+    label: '会員アプリ・集客',
+    title: '会員が自分で予約・管理。\n電話対応がなくなる。',
+    desc: '専用アプリで会員が自ら予約・キャンセル・出欠確認。スタッフへの問い合わせが激減します。紹介キャンペーンのデジタル管理にも対応。',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80',
+    imageAlt: '会員がスマートフォンで予約する様子',
+    reverse: false,
+  },
 ]
 
 const businessTypes = [
@@ -87,42 +105,41 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ヒーロー */}
+      {/* ヒーロー：シンプル・インパクト重視 */}
       <section className="pt-16 relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=85"
-            alt="フィットネス施設"
-            fill className="object-cover" priority
+            alt="フィットネス施設" fill className="object-cover" priority
           />
-          <div className="absolute inset-0 bg-[var(--navy)]/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy)] via-[var(--navy)]/70 to-transparent" />
+          <div className="absolute inset-0 bg-[var(--navy)]/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy)] to-transparent" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-4 py-24 text-white w-full">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm mb-6">
-              <span className="w-2 h-2 rounded-full animate-pulse bg-[var(--teal)]" />
-              DAYS株式会社 × hacomono公式パートナー
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black leading-[1.1] mb-6 tracking-tight">
-              その業務の手間、<br />
-              <span className="text-[var(--teal)]">全部なくせます。</span>
-            </h1>
-            <p className="text-lg text-white/80 mb-4 leading-relaxed">
-              月謝管理・予約対応・入退会手続き・紹介キャンペーン管理—
-              スクール・フィットネス施設のあらゆる業務を<strong className="text-white">hacomonoが自動化</strong>します。
-            </p>
-            <p className="text-sm text-white/60 mb-10">
-              DAYS経由のお申し込みで<span className="text-[var(--teal)] font-bold">初期費用100,000円割引</span>の特典あり。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="inline-flex items-center justify-center font-bold text-white bg-[var(--teal)] px-8 py-4 rounded-xl text-lg hover:opacity-90 transition-all hover:scale-105">
-                無料で相談する →
-              </a>
-              <a href="#pain" className="inline-flex items-center justify-center font-medium text-white border border-white/30 px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-colors">
-                こんな課題ありませんか？
-              </a>
-            </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 py-24 w-full">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs text-white/80 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--teal)] animate-pulse" />
+            DAYS株式会社 × hacomono公式パートナー
+          </div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-8">
+            その手間、<br />
+            <span className="text-[var(--teal)]">全部</span><br />
+            なくせます。
+          </h1>
+
+          <p className="text-white/60 text-base md:text-lg mb-10 max-w-md">
+            スクール・フィットネス施設の業務をhacomonoで自動化。<br />
+            <span className="text-white/90">DAYS経由で初期費用100,000円割引。</span>
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" className="inline-flex items-center justify-center font-bold text-white bg-[var(--teal)] px-8 py-4 rounded-xl text-lg hover:opacity-90 transition-all hover:scale-105">
+              無料で相談する →
+            </a>
+            <a href="#pain" className="inline-flex items-center justify-center font-medium text-white/70 border border-white/20 px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-colors">
+              詳しく見る
+            </a>
           </div>
         </div>
       </section>
@@ -144,82 +161,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 課題セクション */}
-      <section id="pain" className="py-24 bg-[var(--gray-bg)]">
+      {/* 課題セクション：数字を大きく */}
+      <section id="pain" className="py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16">
-            <p className="text-sm font-bold uppercase tracking-widest text-red-400 mb-3">Pain Points</p>
-            <h2 className="text-3xl md:text-4xl font-black text-[var(--navy)] max-w-xl leading-tight">
+            <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Pain Points</p>
+            <h2 className="text-3xl md:text-5xl font-black text-[var(--navy)] leading-tight">
               こんな課題、<br />ありませんか？
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-px bg-gray-200 rounded-2xl overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-6">
             {painPoints.map((p) => (
-              <div key={p.no} className="bg-white p-8">
-                <span className="text-5xl font-black text-gray-100 leading-none block mb-4">{p.no}</span>
-                <h3 className="font-bold text-[var(--navy)] text-lg mb-3 leading-snug">{p.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+              <div key={p.no} className="flex gap-6 items-start p-6 rounded-2xl bg-[var(--gray-bg)]">
+                <span className="text-6xl md:text-7xl font-black text-[var(--teal)] leading-none flex-shrink-0 select-none">
+                  {p.no}
+                </span>
+                <div className="pt-2">
+                  <h3 className="font-bold text-[var(--navy)] text-base md:text-lg mb-2 leading-snug">{p.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-gray-400 text-sm">
-            ↓ これ、全部hacomonoで解決できます
-          </p>
         </div>
       </section>
 
-      {/* 機能：スクリーンショット + リスト */}
-      <section id="features" className="py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      {/* 解決策：交互レイアウト × 写真 */}
+      <section id="features" className="bg-[var(--gray-bg)]">
+        <div className="max-w-6xl mx-auto px-4 pt-24 pb-8">
+          <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Solution</p>
+          <h2 className="text-3xl md:text-5xl font-black text-[var(--navy)] leading-tight mb-4">
+            hacomonoが、<br />全部解決します
+          </h2>
+        </div>
 
-            {/* 左：機能リスト */}
-            <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Solution</p>
-              <h2 className="text-3xl md:text-4xl font-black text-[var(--navy)] mb-3 leading-tight">
-                hacomonoが、<br />全部解決します
-              </h2>
-              <p className="text-gray-500 mb-10 leading-relaxed">
-                会員管理から決済・分析まで、バラバラだった業務ツールをひとつに集約。
-                スタッフの工数を削減し、経営に集中できる環境をつくります。
-              </p>
-              <div className="space-y-5">
-                {features.map((f, i) => (
-                  <div key={f.title} className="flex gap-4 items-start">
-                    <div className="w-7 h-7 rounded-full bg-[var(--teal)] text-white flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">
-                      {i + 1}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-[var(--navy)] mb-0.5">{f.title}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
-                    </div>
-                  </div>
-                ))}
+        {featureSections.map((f, i) => (
+          <div
+            key={f.label}
+            className={`py-16 ${i % 2 === 0 ? 'bg-[var(--gray-bg)]' : 'bg-white'}`}
+          >
+            <div className={`max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 md:gap-20 items-center ${f.reverse ? 'direction-rtl' : ''}`}>
+              <div className={f.reverse ? 'md:order-2' : ''}>
+                <span className="text-xs font-bold uppercase tracking-widest text-[var(--teal)] mb-3 block">{f.label}</span>
+                <h3 className="text-2xl md:text-3xl font-black text-[var(--navy)] mb-5 leading-tight whitespace-pre-line">
+                  {f.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed text-sm md:text-base">{f.desc}</p>
               </div>
-            </div>
-
-            {/* 右：hacomono実際の画面 */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-[var(--teal)]/10 to-[var(--navy)]/10 rounded-3xl -z-10" />
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-                <Image
-                  src="https://www.hacomono.co.jp/wp-content/themes/haco/img/product/img_1.png"
-                  alt="hacomono管理画面のスクリーンショット"
-                  width={700}
-                  height={500}
-                  className="w-full"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-[var(--teal)] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
-                実際の管理画面
+              <div className={`relative ${f.reverse ? 'md:order-1' : ''}`}>
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src={f.image}
+                    alt={f.imageAlt}
+                    width={700}
+                    height={470}
+                    className="w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
+        ))}
+
+        <div className="py-10 text-center bg-[var(--gray-bg)]">
+          <a href="#contact" className="inline-flex items-center gap-2 font-bold text-white bg-[var(--teal)] px-8 py-4 rounded-xl hover:opacity-90 transition-all hover:scale-105">
+            詳しく話を聞きたい →
+          </a>
         </div>
       </section>
 
       {/* 対応業態：写真グリッド */}
-      <section className="py-24 bg-[var(--gray-bg)]">
+      <section className="py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-12">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Business Types</p>
@@ -227,7 +239,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {businessTypes.map((b) => (
-              <div key={b.label} className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-default">
+              <div key={b.label} className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
                 <Image src={b.photo} alt={b.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <span className="absolute bottom-4 left-4 text-white font-bold text-sm md:text-base">{b.label}</span>
@@ -237,13 +249,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 導入成果：Before/After */}
+      {/* 導入成果 */}
       <section className="py-24 bg-[var(--navy)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Results</p>
             <h2 className="text-3xl md:text-4xl font-black text-white">実際に変わった数字</h2>
-            <p className="mt-2 text-white/40 text-sm">※ 導入施設の実績（施設名は非公開）</p>
+            <p className="mt-2 text-white/30 text-xs">※ 導入施設の実績（施設名は非公開）</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {results.map((r) => (
@@ -251,9 +263,7 @@ export default function Home() {
                 <div className="relative h-40">
                   <Image src={r.photo} alt={r.label} fill className="object-cover" />
                   <div className="absolute inset-0 bg-[var(--navy)]/60" />
-                  <span className="absolute bottom-3 left-4 text-xs font-bold px-3 py-1 rounded-full bg-[var(--teal)] text-white">
-                    {r.tag}
-                  </span>
+                  <span className="absolute bottom-3 left-4 text-xs font-bold px-3 py-1 rounded-full bg-[var(--teal)] text-white">{r.tag}</span>
                 </div>
                 <div className="p-6">
                   <p className="text-xs text-white/40 mb-3 uppercase tracking-widest">{r.label}</p>
@@ -274,9 +284,9 @@ export default function Home() {
       <section className="py-24 bg-[var(--teal)]">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <p className="text-sm font-bold uppercase tracking-widest text-white/60 mb-4">Special Offer</p>
-          <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
             さらに、DAYS経由なら<br />
-            初期費用<span className="border-b-4 border-white/50">100,000円が割引</span>
+            初期費用<span className="border-b-4 border-white/50 pb-1">100,000円が割引</span>
           </h2>
           <p className="text-white/80 mb-12 max-w-lg mx-auto leading-relaxed">
             DAYS株式会社はhacomono公式パートナーです。パートナー経由のお申し込みで、通常の初期費用から100,000円の割引が適用されます。
