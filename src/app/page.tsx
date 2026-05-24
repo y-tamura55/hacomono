@@ -304,6 +304,10 @@ export default function Home() {
           <a href="#contact" className="inline-flex items-center gap-2 font-bold text-[var(--teal)] bg-white px-12 py-4 rounded-xl text-lg hover:opacity-90 transition-all hover:scale-105 shadow-xl">
             今すぐ無料相談する →
           </a>
+          <div className="mt-8 text-white/40 text-xs space-y-1">
+            <p>※ 通常初期費用15万円のため、割引適用後の実質負担は5万円となります。</p>
+            <p>※ 運動スクール向け「hacomono for school」は各プランもともと初期費用が0円です。</p>
+          </div>
         </div>
       </section>
 
@@ -313,7 +317,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Contact</p>
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-[var(--navy)]">hacomonoへの導入相談</h2>
-            <p className="text-gray-400">フォーム送信後、hacomonoの担当者よりご連絡いたします。</p>
+            <p className="text-gray-400">フォーム送信後、2営業日以内にhacomonoの担当者よりご連絡いたします。</p>
           </div>
           <ContactForm />
         </div>

@@ -64,7 +64,7 @@ export default function ContactForm() {
           お問い合わせを受け付けました
         </h3>
         <p className="text-gray-500">
-          hacomonoの担当者よりご連絡いたします。
+          2営業日以内にhacomonoの担当者よりご連絡いたします。
           <br />
           しばらくお待ちください。
         </p>
@@ -160,18 +160,42 @@ export default function ContactForm() {
         />
       </Field>
 
-      <div className="flex items-start gap-3 p-4 bg-[#F5F7FA] rounded-xl">
-        <input
-          id="consent"
-          name="consent"
-          type="checkbox"
-          required
-          className="mt-0.5 w-4 h-4 accent-[var(--teal)] flex-shrink-0"
-        />
-        <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
-          <span className="text-red-500 mr-1">*</span>
-          hacomono株式会社からのサービスに関する連絡（営業・サポート等）を受け取ることに同意します。
-        </label>
+      <div className="space-y-3">
+        <div className="flex items-start gap-3 p-4 bg-[#F5F7FA] rounded-xl">
+          <input
+            id="consent"
+            name="consent"
+            type="checkbox"
+            required
+            className="mt-0.5 w-4 h-4 accent-[var(--teal)] flex-shrink-0"
+          />
+          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+            <span className="text-red-500 mr-1">*</span>
+            hacomono株式会社からのサービスに関する連絡（営業・サポート等）を受け取ることに同意します。また、入力した情報がDAYS株式会社からhacomono株式会社に提供されることに同意します。
+          </label>
+        </div>
+
+        <div className="flex items-start gap-3 p-4 bg-[#F5F7FA] rounded-xl">
+          <input
+            id="privacy"
+            name="privacy"
+            type="checkbox"
+            required
+            className="mt-0.5 w-4 h-4 accent-[var(--teal)] flex-shrink-0"
+          />
+          <label htmlFor="privacy" className="text-sm text-gray-600 leading-relaxed">
+            <span className="text-red-500 mr-1">*</span>
+            <a
+              href="https://days-co.jp/privacy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[var(--teal)] hover:opacity-70"
+            >
+              プライバシーポリシー
+            </a>
+            に同意します。
+          </label>
+        </div>
       </div>
 
       {state === 'error' && (
@@ -189,7 +213,7 @@ export default function ContactForm() {
       </button>
 
       <p className="text-xs text-center text-gray-400">
-        送信後、1営業日以内に担当者よりご連絡します
+        送信後、2営業日以内にhacomonoの担当者よりご連絡します
       </p>
     </form>
   )
