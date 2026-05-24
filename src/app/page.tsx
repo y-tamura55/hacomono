@@ -122,15 +122,14 @@ export default function Home() {
             DAYS株式会社 × hacomono公式パートナー
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-8">
+          <h1 className="text-6xl md:text-8xl lg:text-[110px] font-black text-white leading-[1.0] tracking-tight mb-8">
             その手間、<br />
             <span className="text-[var(--teal)]">全部</span><br />
             なくせます。
           </h1>
 
-          <p className="text-white/60 text-base md:text-lg mb-10 max-w-md">
-            スクール・フィットネス施設の業務をhacomonoで自動化。<br />
-            <span className="text-white/90">DAYS経由で初期費用100,000円割引。</span>
+          <p className="text-white/60 text-base md:text-lg mb-10">
+            スクール・フィットネス施設の業務を<span className="text-white font-bold">hacomono</span>で自動化。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
