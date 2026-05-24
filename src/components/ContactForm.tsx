@@ -64,7 +64,7 @@ export default function ContactForm() {
           お問い合わせを受け付けました
         </h3>
         <p className="text-gray-500">
-          担当者より1営業日以内にご連絡いたします。
+          hacomonoの担当者よりご連絡いたします。
           <br />
           しばらくお待ちください。
         </p>

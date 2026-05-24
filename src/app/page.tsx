@@ -292,11 +292,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             {[
-              { label: '初期費用割引', value: '¥100,000 OFF' },
-              { label: '専任サポート', value: '導入〜稼働まで' },
-              { label: '無料相談', value: '60分間' },
+              { label: 'DAYS経由の初期費用割引', value: '¥100,000 OFF' },
+              { label: 'hacomonoによる無料相談', value: '商談無料' },
             ].map(({ label, value }) => (
-              <div key={label} className="bg-white/15 rounded-2xl px-8 py-5">
+              <div key={label} className="bg-white/15 rounded-2xl px-10 py-5">
                 <div className="text-2xl font-black mb-1">{value}</div>
                 <div className="text-sm text-white/70">{label}</div>
               </div>
@@ -313,8 +312,8 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Contact</p>
-            <h2 className="text-3xl md:text-4xl font-black mb-4 text-[var(--navy)]">無料相談・お問い合わせ</h2>
-            <p className="text-gray-400">担当者より1営業日以内にご連絡いたします。</p>
+            <h2 className="text-3xl md:text-4xl font-black mb-4 text-[var(--navy)]">hacomonoへの導入相談</h2>
+            <p className="text-gray-400">フォーム送信後、hacomonoの担当者よりご連絡いたします。</p>
           </div>
           <ContactForm />
         </div>
