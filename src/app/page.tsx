@@ -129,7 +129,7 @@ export default function Home() {
           </h1>
 
           <p className="text-white/60 text-base md:text-lg mb-10">
-            スクール・フィットネス施設の業務を<span className="text-white font-bold">hacomono</span>で自動化。
+            スクール・フィットネス施設の業務を<br className="sm:hidden" /><span className="text-white font-bold">hacomono</span>で自動化。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
