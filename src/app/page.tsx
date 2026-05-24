@@ -317,7 +317,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--teal)] mb-3">Contact</p>
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-[var(--navy)]">hacomonoへの導入相談</h2>
-            <p className="text-gray-400">フォーム送信後、2営業日以内にhacomonoの担当者よりご連絡いたします。</p>
+            <p className="text-gray-400">フォーム送信後、2営業日以内に担当者よりご連絡いたします。</p>
           </div>
           <ContactForm />
         </div>

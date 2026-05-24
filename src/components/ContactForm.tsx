@@ -212,9 +212,6 @@ export default function ContactForm() {
         {state === 'loading' ? '送信中…' : '無料相談を申し込む →'}
       </button>
 
-      <p className="text-xs text-center text-gray-400">
-        送信後、2営業日以内にhacomonoの担当者よりご連絡します
-      </p>
     </form>
   )
 }
